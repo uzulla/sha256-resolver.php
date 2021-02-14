@@ -14,9 +14,9 @@ GMP and other, please see head of code.
 
 ```
 # single(simple) version
-$ time php sha256_resove.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603
+$ time php sha256_resolve.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603
 # fork version
-$ time php sha256_resove_fork.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603 8
+$ time php sha256_resolve_fork.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603 8
 ```
 
 ## sample hash
@@ -43,4 +43,10 @@ ac9f830ae6cf2299ba293dd4cec3be0d87a88e6a8fbfe5015de6fffd11d79b6e
 
 ## sample result
 
-- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) `abcdef1` => 2m11.631s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `a` => 0m0.102s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `ab` => 0m0.108s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abc` => 0m0.124s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcd` => 0m0.529s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcde` => 0m7.334s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcdef` => 0m3.159s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcdef1` => 2m0.772s

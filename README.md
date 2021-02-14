@@ -50,3 +50,5 @@ ac9f830ae6cf2299ba293dd4cec3be0d87a88e6a8fbfe5015de6fffd11d79b6e
 - Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcde` => 0m7.334s
 - Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcdef` => 0m3.159s
 - Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcdef1` => 2m0.772s
+- Mac mini 2018 (matsu) 16 worker. macOS catalina + PHP7.4.9 `abcdef` => 0m3.685s
+- Mac mini 2018 (matsu) 16 worker. macOS catalina + PHP7.4.9 `abcdef1` => 2m28.340s

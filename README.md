@@ -19,7 +19,13 @@ $ time php sha256_resolve.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d59
 $ time php sha256_resolve_short.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603
 # fork version
 $ time php sha256_resolve_fork.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603 8
+# short fork version
+$ time php sha256_resolve_fork_short.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603 8
 ```
+
+> These `short`(w/o gmp) version is fast than gmp version. but, max resolvable length of short version is 15chars. If you need more chars(ex:64 chars), avoid to use `short` version.
+
+> (Ofcourse, the tool is toooooo000ooo slow. You will NOT to be reach PHP_INT_MAX in easyly.)
 
 ## sample hash
 
@@ -45,17 +51,24 @@ ac9f830ae6cf2299ba293dd4cec3be0d87a88e6a8fbfe5015de6fffd11d79b6e
 
 ## sample result
 
-- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `a` => 0m0.102s
-- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `ab` => 0m0.108s
-- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abc` => 0m0.124s
-- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcd` => 0m0.529s
-- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcde` => 0m7.334s
-- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcdef` => 0m3.159s
-- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcdef1` => 2m0.772s
-- Mac mini 2018 (Core i7-8700B @ 3.20GHz) 16 worker. macOS catalina + PHP7.4.9 `abcdef` => 0m3.685s
-- Mac mini 2018 (Core i7-8700B @ 3.20GHz) 16 worker. macOS catalina + PHP7.4.9 `abcdef1` => 2m28.340s
+## fork version
+
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 + xdebug `a` => 0m0.102s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 + xdebug `ab` => 0m0.108s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 + xdebug `abc` => 0m0.124s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 + xdebug `abcd` => 0m0.529s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 + xdebug `abcde` => 0m7.334s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 + xdebug `abcdef` => 0m3.159s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 + xdebug `abcdef1` => 2m0.772s
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 + xdebug `abcdef1` => 2m0.772s
+- Mac mini 2018 (Core i7-8700B @ 3.20GHz) 16 worker. macOS catalina + PHP7.4.9 + xdebug `abcdef` => 0m3.685s
+- Mac mini 2018 (Core i7-8700B @ 3.20GHz) 16 worker. macOS catalina + PHP7.4.9 + xdebug `abcdef1` => 2m28.340s
 - Macbook Pro 2020 M1 8 worker. macOS Big Sur + PHP ([php-src:8ffc20](https://github.com/php/php-src/tree/8ffc20ace6c8a59b30aea53e2100aa26e4f1f3ee)) `abc` => 0m0.023s
 - Macbook Pro 2020 M1 8 worker. macOS Big Sur + PHP ([php-src:8ffc20](https://github.com/php/php-src/tree/8ffc20ace6c8a59b30aea53e2100aa26e4f1f3ee)) `abcd` => 0m0.067s
 - Macbook Pro 2020 M1 8 worker. macOS Big Sur + PHP ([php-src:8ffc20](https://github.com/php/php-src/tree/8ffc20ace6c8a59b30aea53e2100aa26e4f1f3ee)) `abcde` => 0m0.707s
 - Macbook Pro 2020 M1 8 worker. macOS Big Sur + PHP ([php-src:8ffc20](https://github.com/php/php-src/tree/8ffc20ace6c8a59b30aea53e2100aa26e4f1f3ee)) `abcdef` => 0m1.795s
 - Macbook Pro 2020 M1 8 worker. macOS Big Sur + PHP ([php-src:8ffc20](https://github.com/php/php-src/tree/8ffc20ace6c8a59b30aea53e2100aa26e4f1f3ee)) `abcdef1` => 0m25.928s
+
+## fork short(w/o gmp)
+
+- Thinkpad X13 (AMD Ryzen 7 PRO 4750U) 16 worker. Linux + PHP 8.0.2 `abcdef1` => 0m13.845s

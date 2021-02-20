@@ -15,6 +15,8 @@ GMP and other, please see head of code.
 ```
 # single(simple) version
 $ time php sha256_resolve.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603
+# short(and invalid) version
+$ time php sha256_resolve_short.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603
 # fork version
 $ time php sha256_resolve_fork.php fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603 8
 ```
